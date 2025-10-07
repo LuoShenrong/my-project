@@ -11,3 +11,15 @@
 通信与状态维护：与服务器间采用心跳机制，客户端每 3 秒发送 1 个心跳包（用 SIGALARM 实现），服务器需显示来自对应 IP 客户端的心跳包；支持聊天功能，可查询在线列表（从服务器链表获取信息），通过 “用户名 + 数据” 的形式与其他客户端进行文字通信。
 （三）通信协议
 需自定义应用协议封装客户端与服务器间的通信数据，数据包格式包含 int 类型的 data_type（数据包类型）、int 类型的 size（数据大小）、char 类型的 data [1024]（数据内容）。其中 data_type 用宏定义，涵盖登录（TYPE_LOGIN=0）、注册（TYPE_REG=1）、消息（TYPE_MSG=2）、心跳（TYPE_HEART=3）、命令（TYPE_CMD=4）、查看在线用户（TYPE_ONLINE=5）、成功（TYPE_OK=6）、错误（TYPE_ERR=7）等类型。
+
+
+运行方法：
+1.在Linux系统下执行以下指令：  
+gcc -o client client_agreement.c client_ui.c client.c -pthread
+gcc -o server server_argeement.c thread.c accout.c client_list.c server.c -pthread
+用来生成./client和./server两个可执行程序
+
+2.打开两个终端分别执行客户端程序和服务端程序
+注意要先执行服务端程序以接收客户端连接
+
+
