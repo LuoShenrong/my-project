@@ -22,4 +22,4 @@ gcc -o server server_argeement.c thread.c accout.c client_list.c server.c -pthre
 2.打开两个终端分别执行客户端程序和服务端程序
 注意要先执行服务端程序以接收客户端连接
 
-
+该系统还有一些开发中产生的过程文档（记录思路和bug解决)以及操作录像（超100M过大故未上传）
